@@ -3,9 +3,12 @@ import class Foundation.Bundle
 
 final class day_1Tests: XCTestCase {
     func testDay1WithExamplesFromDescription() throws {
-        XCTAssertEqual(try outputOfBinary(withArgument: "+1\n+1\n+1"), "3\n")
         XCTAssertEqual(try outputOfBinary(withArgument: "+1\n+1\n-2"), "0\n")
-        XCTAssertEqual(try outputOfBinary(withArgument: "-1\n-2\n-3"), "-6\n")
+    }
+
+    func testDay1Step2() throws {
+        let argument = [1, -2, 3, 1].compactMap({ String($0) }).joined(separator: "\n")
+        XCTAssertEqual(try outputOfBinary(withArgument: argument), "2\n")
     }
 
     func testDay1WithNoArguments() throws {
