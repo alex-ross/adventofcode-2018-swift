@@ -1,0 +1,15 @@
+# day-1
+
+Build the binary using
+
+```bash
+swift build
+```
+
+Copy your puzzle input from Advent of Code.
+
+Run
+
+```bash
+./.build/x86_64-apple-macosx10.10/debug/day-1 $(pbpaste)
+```
