@@ -1,4 +1,5 @@
 import Foundation
+import AdventOfCode
 
 public class BoxList {
     public let boxes: [BoxId]

@@ -1,6 +1,4 @@
-import Foundation
-
-extension String {
+public extension String {
     func onlySameCharactersOnSamePosition(as string: String) -> String {
         var commonCharacters = [Character]()
 
@@ -19,3 +17,4 @@ extension String {
         return characters[index]
     }
 }
+

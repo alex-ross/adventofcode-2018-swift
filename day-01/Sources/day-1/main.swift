@@ -1,9 +1,10 @@
 import Foundation
+import AdventOfCode
 
 // First argument is always the name of the program. So we need atleast one more argument to proceed
 if CommandLine.argc < 2 {
     print("No arguments are passed.")
-    exit(ExitCode.error.rawValue)
+    exit(ExitCode.error)
 }
 
 let integers = CommandLine.arguments.offset(1).flatSplitElements(separator: "\n").toIntegers()
@@ -15,7 +16,7 @@ func reducer(result: Int, number: Int) -> Int {
 
     if frequencies.contains(frequency) {
         print(frequency)
-        exit(ExitCode.success.rawValue)
+        exit(ExitCode.success)
     }
 
     frequencies.append(frequency)

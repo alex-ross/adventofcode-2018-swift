@@ -1,5 +1,6 @@
 import Foundation
 import DayTwoLib
+import AdventOfCode
 
 // First argument is always the name of the program. So we need atleast one more argument to proceed
 if CommandLine.argc < 2 {
