@@ -2,24 +2,7 @@ import Foundation
 import DayTwoLib
 import AdventOfCode
 
-// First argument is always the name of the program. So we need atleast one more argument to proceed
-if CommandLine.argc < 2 {
-    print("No arguments are passed.")
-    exit(ExitCode.error)
-}
-
-extension Array {
-    func offset(_ offset: Int) -> [Element] {
-        return [Element](self[offset..<count])
-    }
-}
-
-
-extension Array where Element == String {
-    func flatSplitElements(separator: Character) -> [Substring] {
-        return self.flatMap({ $0.split(separator: separator) })
-    }
-}
+AdventOfCode.exitIfNoArgumentsArePassed()
 
 let boxIds = CommandLine
     .arguments

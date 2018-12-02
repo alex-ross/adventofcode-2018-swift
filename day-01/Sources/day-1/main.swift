@@ -1,11 +1,7 @@
 import Foundation
 import AdventOfCode
 
-// First argument is always the name of the program. So we need atleast one more argument to proceed
-if CommandLine.argc < 2 {
-    print("No arguments are passed.")
-    exit(ExitCode.error)
-}
+AdventOfCode.exitIfNoArgumentsArePassed()
 
 let integers = CommandLine.arguments.offset(1).flatSplitElements(separator: "\n").toIntegers()
 
