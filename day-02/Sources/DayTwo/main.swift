@@ -29,4 +29,8 @@ let boxIds = CommandLine
 
 let boxList = BoxList(boxes: boxIds)
 
-print(boxList.checksum)
+print("Checksum: \(boxList.checksum)")
+print("Similar boxes:")
+boxList.boxesWithOnlyOneCharacterDifferentAtSamePosition.forEach({ print("  - \($0.string)") })
+print("Answer is: \(boxList.commonLettersWithOnlyOneCharacterDifferantAtSamePosition)")
+

@@ -42,6 +42,24 @@ class BoxListTests: XCTestCase {
         XCTAssertEqual(boxList.checksum, 8)
     }
 
+    func testBoxesWithOnlyOneCharacterDifferentAtSamePosition() {
+        let similarBox1 = BoxId("fguij")
+        let similarBox2 = BoxId("fghij")
+        let boxList = BoxList(boxes: [
+            .init("abcde"),
+            similarBox1,
+            .init("klmno"),
+            .init("pqrst"),
+            similarBox2,
+            .init("axcye"),
+            .init("wvxyz"),
+        ])
+
+        XCTAssertEqual(2, boxList.boxesWithOnlyOneCharacterDifferentAtSamePosition.count)
+        XCTAssertTrue(boxList.boxesWithOnlyOneCharacterDifferentAtSamePosition.contains(where: { $0 == similarBox1 }))
+        XCTAssertTrue(boxList.boxesWithOnlyOneCharacterDifferentAtSamePosition.contains(where: { $0 == similarBox2 }))
+    }
+
     static var allTests = [
         ("testChecksum", testChecksum)
     ]

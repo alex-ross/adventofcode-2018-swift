@@ -1,6 +1,6 @@
 import Foundation
 
-public struct BoxList {
+public class BoxList {
     public let boxes: [BoxId]
 
     public init(boxes: [BoxId]) {
@@ -20,4 +20,17 @@ public struct BoxList {
     private func lettersAppears3Times(boxId: BoxId) -> Bool {
         return !boxId.letters(whereNumberOfInstances: 3).isEmpty
     }
+
+    lazy public var boxesWithOnlyOneCharacterDifferentAtSamePosition: [BoxId] = {
+        return boxes.compactMap { boxId in
+            if boxes.filter({ boxId != $0 }).filter({ boxId.differsOneCharacter(fromBoxId: $0) }).isEmpty { return nil }
+            return boxId
+        }
+    }()
+
+    lazy public var commonLettersWithOnlyOneCharacterDifferantAtSamePosition: String = {
+        guard let first = boxesWithOnlyOneCharacterDifferentAtSamePosition.first else { return "" }
+        guard let last = boxesWithOnlyOneCharacterDifferentAtSamePosition.last else { return "" }
+        return first.string.onlySameCharactersOnSamePosition(as: last.string)
+    }()
 }

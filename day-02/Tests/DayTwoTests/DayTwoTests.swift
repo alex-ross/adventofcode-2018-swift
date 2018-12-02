@@ -16,7 +16,16 @@ final class DayTwoTests: XCTestCase {
         abcdee
         ababab
         """
-        XCTAssertEqual(try outputOfBinary(withArgument: argument), "12\n")
+
+        let expectedOutput = """
+        Checksum: 12
+        Similar boxes:
+          - abcdef
+          - abcdee
+        Answer is: abcde
+
+        """
+        XCTAssertEqual(try outputOfBinary(withArgument: argument), expectedOutput)
     }
 
     /// Returns path to the built products directory.
