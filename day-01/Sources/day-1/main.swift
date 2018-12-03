@@ -3,9 +3,9 @@ import AdventOfCode
 
 AdventOfCode.exitIfNoArgumentsArePassed()
 
-let integers = CommandLine.arguments.offset(1).flatSplitElements(separator: "\n").toIntegers()
+let integers = AdventOfCode.normalizedCommandLineArguments.toIntegers()
 
-var frequencies = [0]
+var frequencies: Set = [0]
 
 func reducer(result: Int, number: Int) -> Int {
     let frequency = result + number
@@ -15,11 +15,11 @@ func reducer(result: Int, number: Int) -> Int {
         exit(ExitCode.success)
     }
 
-    frequencies.append(frequency)
+    frequencies.insert(frequency)
 
     return result + number
 }
 
 while true {
-    _ = integers.reduce(frequencies.last!, reducer)
+    _ = integers.reduce(frequencies.max()!, reducer)
 }
