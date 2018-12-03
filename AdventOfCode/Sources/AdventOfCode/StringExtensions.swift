@@ -16,5 +16,13 @@ public extension String {
         guard index < self.count else { return nil }
         return characters[index]
     }
+
+    var lines: [String] {
+        var result: [String] = []
+        enumerateLines { line, _ in
+            result.append(line)
+        }
+        return result
+    }
 }
 

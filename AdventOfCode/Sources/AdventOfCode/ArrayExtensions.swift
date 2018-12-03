@@ -10,14 +10,8 @@ public extension Array where Element : Hashable {
     }
 }
 
-public extension Array where Element == Substring {
+public extension Array where Element == String {
     func toIntegers() -> [Int] {
         return self.compactMap({ Int($0) })
-    }
-}
-
-public extension Array where Element == String {
-    func flatSplitElements(separator: Character) -> [Substring] {
-        return self.flatMap({ $0.split(separator: separator) })
     }
 }
