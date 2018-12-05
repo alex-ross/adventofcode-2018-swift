@@ -1,7 +1,7 @@
 import XCTest
 import class Foundation.Bundle
 
-final class DayFourTests: XCTestCase {
+final class SolutionTests: XCTestCase {
     func testDay1WithNoArguments() throws {
         XCTAssertEqual(try outputOfBinary(), "No arguments are passed.\n")
     }
@@ -12,8 +12,8 @@ final class DayFourTests: XCTestCase {
         """
 
         let expected = """
-        Step 1: dabCBAcaDA
-        Step 2:
+        Step 1: 10
+        Step 2: 4
 
         """
         XCTAssertEqual(try outputOfBinary(withArgument: argument), expected)
@@ -41,7 +41,7 @@ final class DayFourTests: XCTestCase {
             fatalError("Only available on macOS 10.13 and above")
         }
 
-        let binary = productsDirectory.appendingPathComponent("DayFour")
+        let binary = productsDirectory.appendingPathComponent("Solution")
 
         let process = Process()
         process.executableURL = binary

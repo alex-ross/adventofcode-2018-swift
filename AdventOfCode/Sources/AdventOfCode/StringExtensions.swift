@@ -26,3 +26,14 @@ public extension String {
     }
 }
 
+public extension Character {
+    public func swappedcased() -> Character {
+        let lower = String(self).lowercased().first!
+        if lower == self {
+            return String(self).uppercased().first!
+        } else {
+            return lower
+        }
+    }
+}
+
