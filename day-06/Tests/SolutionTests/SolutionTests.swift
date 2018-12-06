@@ -8,12 +8,27 @@ final class SolutionTests: XCTestCase {
 
     func testExample() throws {
         let argument = """
-        dabAcCaCBAcCcaDA
+        1, 1
+        1, 6
+        8, 3
+        3, 4
+        5, 5
+        8, 9
         """
 
         let expected = """
-        Step 1: 10
-        Step 2: 4
+        aaaaa.cccc
+        aAaaa.cccc
+        aaaddecccc
+        aadddeccCc
+        ..dDdeeccc
+        bb.deEeecc
+        bBb.eeee..
+        bbb.eeefff
+        bbb.eeffff
+        bbb.ffffFf
+        Step 1: 17
+        Step 2:
 
         """
         XCTAssertEqual(try outputOfBinary(withArgument: argument), expected)
