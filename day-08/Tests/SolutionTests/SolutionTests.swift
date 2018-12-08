@@ -13,7 +13,7 @@ final class SolutionTests: XCTestCase {
 
         let expected = """
         Step 1: 138
-        Step 2: 0
+        Step 2: 66
 
         """
         XCTAssertEqual(try outputOfBinary(withArgument: argument), expected)

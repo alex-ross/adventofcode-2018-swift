@@ -12,6 +12,7 @@ public struct Node {
     let length: Int
 
     public let metadataSum: Int
+    public let value: Int
 
     init(numbers: ArraySlice<Int>) {
         assert(numbers.count >= 3)
@@ -30,15 +31,25 @@ public struct Node {
 
             childs.append(childNode)
         }
-        
+
         self.childNodes = childs
         self.length = length
         self.numberOfMetadataEntries = numberOfMetadataEntries
 
+
         let suffix = numbers.startIndex + length - numberOfMetadataEntries
         metadataEntries = numbers.suffix(from: suffix).prefix(numberOfMetadataEntries).map({ Int($0) })
-
         self.metadataSum = metadataEntries.reduce(metadataSum, +)
+
+
+        // Step 2
+        if childs.isEmpty {
+            // Step 2: The value is the sum of it's metadata if it has no childs
+            self.value = metadataEntries.reduce(0, +)
+        } else {
+            // Step 2: With childs the metadata is indexes (starting with 1 for first child)
+            self.value = metadataEntries.filter({ $0 <= childs.count }).map({ childs[$0 - 1].value }).reduce(0, +)
+        }
     }
 
     public init(numbers: [Int]) {
