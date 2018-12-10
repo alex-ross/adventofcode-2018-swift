@@ -9,6 +9,10 @@ public extension Array {
         array.append(newElement)
         return array
     }
+
+    func anySatisfy(_ predicate: (Element) -> Bool) -> Bool {
+        return !self.allSatisfy { !predicate($0) }
+    }
 }
 
 public extension Array where Element : Hashable {
